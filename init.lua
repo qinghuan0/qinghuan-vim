@@ -8,3 +8,18 @@ if vim.g.neovide then
   vim.g.neovide_remember_window_size = true
   vim.g.neovide_cursor_vfx_mode = "railgun"
 end
+
+vim.g.clipboard = {
+  name = 'OSC 52',
+  copy = {
+    ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+    ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+  },
+  paste = {
+    ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
+    ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+  },
+}
+
+vim.diagnostic.disable()
+
